@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="nL5-uS-pc8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="test">
+                                <state key="normal" title="Run Animation">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -33,9 +33,21 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLu-sv-lrU" customClass="SpringView" customModule="Spring">
                                 <rect key="frame" x="55" y="124" width="304" height="160"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9U-mi-n6h">
+                                        <rect key="frame" x="8" y="8" width="288" height="144"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="W9U-mi-n6h" secondAttribute="trailing" constant="8" id="1BK-QY-21X"/>
+                                    <constraint firstItem="W9U-mi-n6h" firstAttribute="top" secondItem="BLu-sv-lrU" secondAttribute="top" constant="8" id="AuS-Fk-81P"/>
+                                    <constraint firstAttribute="bottom" secondItem="W9U-mi-n6h" secondAttribute="bottom" constant="8" id="Rca-Cg-wyA"/>
                                     <constraint firstAttribute="height" constant="160" id="URV-4Z-L9J"/>
+                                    <constraint firstItem="W9U-mi-n6h" firstAttribute="leading" secondItem="BLu-sv-lrU" secondAttribute="leading" constant="8" id="bJQ-MK-D1n"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -50,6 +62,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animationLabel" destination="W9U-mi-n6h" id="Wqv-Ze-2TR"/>
                         <outlet property="animationView" destination="BLu-sv-lrU" id="FJy-ce-Ji0"/>
                         <outlet property="runButton" destination="ZJk-jW-AyS" id="FYf-bR-8JM"/>
                     </connections>
