@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Model.swift
 //  cocoaPodsHW
 //
 //  Created by Marius Malyshev on 27.02.2021.
