@@ -5,8 +5,6 @@
 //  Created by Marius Malyshev on 27.02.2021.
 //
 
-import Foundation
-
 class DataManager {
     
     static let shared = DataManager()
