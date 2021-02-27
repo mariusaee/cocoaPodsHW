@@ -9,6 +9,9 @@ import Spring
 
 class ViewController: UIViewController {
     
+    let currentAnimation = Animation.getAnimation()
+
+    
     @IBOutlet var animationView: SpringView!
     @IBOutlet var animationLabel: UILabel!
     @IBOutlet var runButton: SpringButton!
@@ -21,15 +24,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func runButtonPressed(_ sender: SpringButton) {
+        let currentAnimation = Animation.getAnimation()
         
-        let randomNumber = Int.random(in: 0..<DataManager.shared.animations.endIndex)
-        
-        animationView.animation = String(DataManager.shared.animations[randomNumber].name)
-        animationView.curve = String(DataManager.shared.animations[randomNumber].curve)
+        animationView.animation = currentAnimation.name
+        animationView.curve = currentAnimation.curve
                 
-        animationView.force = CGFloat.random(in: 1...2)
-        animationView.duration = CGFloat.random(in: 1...2)
-        animationView.delay = CGFloat.random(in: 0.1...0.5)
+        animationView.force = currentAnimation.force
+        animationView.duration = currentAnimation.duration
+        animationView.delay = currentAnimation.delay
         animationView.animate()
         
         animationLabel.text =
@@ -40,5 +42,7 @@ class ViewController: UIViewController {
             Duration: \(String(format: "%.2f", animationView.duration))
             Delay: \(String(format: "%.2f", animationView.delay))
             """
+        runButton.setTitle("\(currentAnimation.name)", for: .normal)
+
     }
 }
