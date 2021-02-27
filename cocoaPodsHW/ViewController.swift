@@ -9,6 +9,8 @@ import Spring
 
 class ViewController: UIViewController {
     
+    var nextAnimation = Animation.getName()
+    
     @IBOutlet var animationView: SpringView!
     @IBOutlet var animationLabel: UILabel!
     @IBOutlet var runButton: SpringButton!
@@ -17,28 +19,29 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         animationView.layer.cornerRadius = 10
         runButton.layer.cornerRadius = 10
-        runButton.setTitle("Run animation", for: .normal)
+        
+        let currentAnimation = Animation.getAnimation(with: nextAnimation)
+        animationLabel.text = currentAnimation.allIn
+        
+        runButton.setTitle("Run \(currentAnimation.name)", for: .normal)
     }
-
+    
     @IBAction func runButtonPressed(_ sender: SpringButton) {
+        let currentAnimation = Animation.getAnimation(with: nextAnimation)
         
-        let randomNumber = Int.random(in: 0..<DataManager.shared.animations.endIndex)
+        animationView.animation = currentAnimation.name
+        animationView.curve = currentAnimation.curve
+        animationView.force = currentAnimation.force
+        animationView.duration = currentAnimation.duration
+        animationView.delay = currentAnimation.delay
         
-        animationView.animation = String(DataManager.shared.animations[randomNumber].name)
-        animationView.curve = String(DataManager.shared.animations[randomNumber].curve)
-                
-        animationView.force = CGFloat.random(in: 1...2)
-        animationView.duration = CGFloat.random(in: 1...2)
-        animationView.delay = CGFloat.random(in: 0.1...0.5)
         animationView.animate()
         
-        animationLabel.text =
-            """
-            Name: \(animationView.animation)
-            Curve: \(animationView.curve)
-            Force: \(String(format: "%.2f", animationView.force))
-            Duration: \(String(format: "%.2f", animationView.duration))
-            Delay: \(String(format: "%.2f", animationView.delay))
-            """
+        animationLabel.text = currentAnimation.allIn
+        
+        nextAnimation = Animation.getName()
+        
+        runButton.setTitle("Run \(nextAnimation)", for: .normal)
+        
     }
 }
