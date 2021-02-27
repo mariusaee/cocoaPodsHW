@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         animationView.curve = "spring"
         animationView.force = 1
         animationView.duration = 1
-        animationView.delay = 1
+        animationView.delay = 0
         
         animationView.animate()
         
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
             """
         
         runButton.setTitle("Run \(animationView.animation)", for: .normal)
-        
+        print(DataManager.shared.animation.randomElement() ?? "")
     }
 }
 
