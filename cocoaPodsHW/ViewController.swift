@@ -25,11 +25,7 @@ class ViewController: UIViewController {
         
         animationView.animation = String(DataManager.shared.animations[randomNumber].name)
         animationView.curve = String(DataManager.shared.animations[randomNumber].curve)
-        
-//        animationView.force = CGFloat(DataManager.shared.animations[randomNumber].force)
-//        animationView.duration = CGFloat(DataManager.shared.animations[randomNumber].duration)
-//        animationView.delay = CGFloat(DataManager.shared.animations[randomNumber].delay)
-        
+                
         animationView.force = CGFloat.random(in: 1...2)
         animationView.duration = CGFloat.random(in: 1...2)
         animationView.delay = CGFloat.random(in: 0.1...0.5)
@@ -45,5 +41,3 @@ class ViewController: UIViewController {
             """
     }
 }
-
-//String(format: "force: %.2f", animation.force)

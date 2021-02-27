@@ -10,7 +10,4 @@ import Spring
 struct Animation {
     let name: String
     let curve: String
-//    let force: CGFloat
-//    let duration: CGFloat
-//    let delay: CGFloat
 }
