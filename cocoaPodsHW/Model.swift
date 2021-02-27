@@ -14,13 +14,13 @@ struct Animation {
     let duration: CGFloat
     let delay: CGFloat
     var allIn: String {
-        """
-        Name: \(name)
-        Curve: \(curve)
-        Force: \(String(format: "%.2f", force))
-        Duration: \(String(format: "%.2f", duration))
-        Delay: \(String(format: "%.2f", delay))
-        """
+                        """
+                        Name: \(name)
+                        Curve: \(curve)
+                        Force: \(String(format: "%.2f", force))
+                        Duration: \(String(format: "%.2f", duration))
+                        Delay: \(String(format: "%.2f", delay))
+                        """
     }
     
     static func getAnimation(with name: String) -> Animation {
