@@ -16,8 +16,6 @@ class DataManager {
         "squeeze",
         "wobble",
         "swing",
-        "flipX",
-        "flipY",
         "squeezeLeft",
         "squeezeRight",
         "squeezeDown",
