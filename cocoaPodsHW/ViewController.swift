@@ -17,29 +17,33 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         animationView.layer.cornerRadius = 10
         runButton.layer.cornerRadius = 10
-        runButton.setTitle("Run \(animationView.animation)", for: .normal)
+        runButton.setTitle("Run animation", for: .normal)
     }
 
     @IBAction func runButtonPressed(_ sender: SpringButton) {
-        animationView.animation = "squeeze"
-        animationView.curve = "spring"
-        animationView.force = 1
-        animationView.duration = 1
-        animationView.delay = 0
+        let randomNumber = Int.random(in: 0..<DataManager.shared.animations.endIndex)
         
+        animationView.animation = String(DataManager.shared.animations[randomNumber].name)
+        animationView.curve = String(DataManager.shared.animations[randomNumber].curve)
+        
+//        animationView.force = CGFloat(DataManager.shared.animations[randomNumber].force)
+//        animationView.duration = CGFloat(DataManager.shared.animations[randomNumber].duration)
+//        animationView.delay = CGFloat(DataManager.shared.animations[randomNumber].delay)
+        
+        animationView.force = CGFloat.random(in: 1...2)
+        animationView.duration = CGFloat.random(in: 1...2)
+        animationView.delay = CGFloat.random(in: 0.1...0.5)
         animationView.animate()
         
         animationLabel.text =
             """
             Name: \(animationView.animation)
-            Curve: \(animationView.animation)
-            Force: \(animationView.animation)
-            Duration: \(animationView.animation)
-            Delay: \(animationView.animation)
+            Curve: \(animationView.curve)
+            Force: \(String(format: "%.2f", animationView.force))
+            Duration: \(String(format: "%.2f", animationView.duration))
+            Delay: \(String(format: "%.2f", animationView.delay))
             """
-        
-        runButton.setTitle("Run \(animationView.animation)", for: .normal)
-//        print(DataManager.shared.animation.randomElement() ?? "")
     }
 }
 
+//String(format: "force: %.2f", animation.force)

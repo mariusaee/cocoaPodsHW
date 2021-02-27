@@ -5,12 +5,12 @@
 //  Created by Marius Malyshev on 27.02.2021.
 //
 
-import Foundation
+import Spring
 
 struct Animation {
     let name: String
     let curve: String
-    let force: Double
-    let duration: Double
-    let delay: Double
+//    let force: CGFloat
+//    let duration: CGFloat
+//    let delay: CGFloat
 }
