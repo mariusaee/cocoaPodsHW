@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         
         runButton.setTitle("Run \(currentAnimation.name)", for: .normal)
     }
-
+    
     @IBAction func runButtonPressed(_ sender: SpringButton) {
         let currentAnimation = Animation.getAnimation(with: nextAnimation)
         
@@ -38,10 +38,10 @@ class ViewController: UIViewController {
         animationView.animate()
         
         animationLabel.text = currentAnimation.allIn
-
+        
         nextAnimation = Animation.getName()
         
         runButton.setTitle("Run \(nextAnimation)", for: .normal)
-
+        
     }
 }
