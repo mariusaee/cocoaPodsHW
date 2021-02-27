@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func runButtonPressed(_ sender: SpringButton) {
+        
         let randomNumber = Int.random(in: 0..<DataManager.shared.animations.endIndex)
         
         animationView.animation = String(DataManager.shared.animations[randomNumber].name)
