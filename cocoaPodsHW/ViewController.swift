@@ -39,7 +39,7 @@ class ViewController: UIViewController {
             """
         
         runButton.setTitle("Run \(animationView.animation)", for: .normal)
-        print(DataManager.shared.animation.randomElement() ?? "")
+//        print(DataManager.shared.animation.randomElement() ?? "")
     }
 }
 

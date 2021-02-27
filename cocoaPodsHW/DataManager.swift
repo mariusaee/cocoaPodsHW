@@ -10,11 +10,24 @@ import Foundation
 class DataManager {
     static let shared = DataManager()
     
-    let animation = ["shake",
-                     "pop",
-                     "morph",
-                     "squeeze"]
-    
+    var animations: [Animation] = [
+        Animation(name: "shake",
+                  curve: "spring",
+                  force: 1,
+                  duration: 1,
+                  delay: 1),
+        Animation(name: "pop",
+                  curve: "linear",
+                  force: 1,
+                  duration: 1,
+                  delay: 1),
+        Animation(name: "wobble",
+                  curve: "easeIn",
+                  force: 1,
+                  duration: 1,
+                  delay: 1)
+    ]
+
     private init () {}
 }
 
